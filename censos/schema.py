@@ -32,6 +32,24 @@ class Query(graphene.ObjectType):
             )
             return Censo.objects.filter(filter)
 
-        return Censo.objects.all()
+        if not idestado and idactividad and not idmunicipio:
+            filter = (
+                Q(actividad__contains=idactividad)
+            )
+            return Censo.objects.filter(filter)
+
+        if not idestado and not idactividad and idmunicipio:
+            filter = (
+                Q(idmunicipio=idmunicipio)
+            )
+            return Censo.objects.filter(filter)
+
+        if not idestado and idactividad and idmunicipio:
+            filter = (
+                Q(actividad__contains=idactividad) &
+                Q(idmunicipio=idmunicipio)
+            )
+            return Censo.objects.filter(filter)
+        return Censo.objects.all()[:10]
 
 
