@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'maps-inegi-graphql.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'adsoft_inegi',
+        'NAME': 'oscarc_ng5',
         'USER': 'postgres',
         'PASSWORD': 'adsoft',
         'HOST': '104.198.244.0',
